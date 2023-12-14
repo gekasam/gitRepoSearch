@@ -10,7 +10,7 @@ function debounce(fn) {
 
   return function (event) {
     clearInterval(timer);
-    setTimeout(() => {
+    timer = setTimeout(() => {
       fn(event);
     }, 2000);
   };
@@ -18,14 +18,17 @@ function debounce(fn) {
 
 function inputHandler(event) {
   let searchKey = event.target.value;
-
-  const url = new URL('https://api.github.com/search/repositories');
-  url.searchParams.set('q', searchKey);
-  url.searchParams.set('per_page', 5);
-  fetch(url)
-    .then((response) => response.json())
-    .then((response) => resultRender(response.items))
-    .catch((error) => error);
+  if (searchKey && !/^\s+$/.test(searchKey)) {
+    const url = new URL('https://api.github.com/search/repositories');
+    url.searchParams.set('q', searchKey);
+    url.searchParams.set('per_page', 5);
+    fetch(url)
+      .then((response) => response.json())
+      .then((response) => resultRender(response.items))
+      .catch((error) => error);
+  } else {
+    retrieved.innerHTML = '';
+  }
 }
 
 function resultRender(items) {
