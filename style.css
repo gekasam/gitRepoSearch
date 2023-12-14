@@ -1,0 +1,85 @@
+*, *::after, *::before {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: black;
+  color: white;
+  padding: 15%;
+}
+
+.container {
+  display: flex;
+  border: 1px solid;
+  height: 400px;
+  width: 400px;
+}
+
+.search-wrap {
+  width: 40%;
+  height: 40%;
+  display: flex;
+  flex-direction: column;
+}
+
+.search {
+  width: 100%;
+  height: 20%;
+  background: #00388f;
+  color: white;
+  padding: 4px;
+}
+
+.search:hover {
+  background: #0044b0;
+}
+
+.retrieved {
+  width: 100%;
+  height: 80%;
+}
+
+.option {
+  width: 100%;
+  background-color: #87c4b0;
+  padding: 4px;
+}
+
+.option:hover {
+  background-color: #638e80;
+}
+
+.list {
+  width: 60%;
+  height: 100%;
+  border: 1px solid;
+  list-style: none;
+}
+
+.field {
+  padding: 4px;
+  background-color: #25272a;
+  border-bottom: 1px solid #828282;
+}
+
+.repo {
+  position: relative;
+  width: 100%;
+  border: 1px solid;
+  padding: 4px
+}
+
+.remove {
+  position: absolute;
+  top: 0;
+  right: 0;
+  background-color: brown;
+  width: 20px;
+  height: 20px;
+}
+
+.remove:hover {
+  background-color: rgb(113, 30, 30);
+}
